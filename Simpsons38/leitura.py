@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+import sys
 def ler():
-	a = open("dados.txt","r") #Abre um arquivo chamado dados.txt
+	arq = sys.argv[1]
+	a = open(arq,"r") #Abre um arquivo chamado dados.txt
 	m = int(a.readline()) #Le a primeira linha do arquivo, salva o valor dela na variavel m e a ponta para a segunda linha do arquivo
 	if ( m%3 != 0 ): #verifica se m é um número multiplo de 3 
 		print "O valor de m nao e um multiplo de 3 entao nao sera possivel aplicar o metodo de simpson 3/8"
@@ -13,8 +15,10 @@ def ler():
 		while (x < len(i)): #Verifica se a proxima string da lista pode ser convertida para numeral		
 			i[x] = float(i[x]) #converte a String para float						
 			x = x + 1	#incrementa x					
-		l.append(i) # a lista l so recebe os valores que foram convertidos		
+		l.append(i) # a lista l so recebe os valores que foram convertidos
+	a.close()			
 	return l
+
 
 	
 	

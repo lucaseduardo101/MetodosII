@@ -1,16 +1,21 @@
 import leitura
 
 l = leitura.ler()
+x = []
+y = []
 m = l[0]
+somatorio = 0.0
+simpson = 0.0
 
 h = (l[m+1][0] - l[1][0]) / m
 print h
 
-x = [0.0, 0.5, 1.0,   1.5]
-y = [0.0, 0.35, 0.55, 0.9]
-
-somatorio = 0.0
-simpson = 0.0	
+for i in range ( 1,m +2):
+	x.append( l[i][0] )
+	y.append( l[i][1] )
+	
+print x
+print y	
 
 for i in range(0,len(y)):
 	if ( ( i == 0 ) or ( i == len(x) - 1 ) ): 
