@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys
-def ler():
-	arq = sys.argv[1]
+def ler(arq):	
 	a = open(arq,"r") #Abre um arquivo chamado dados.txt
 	m = int(a.readline()) #Le a primeira linha do arquivo, salva o valor dela na variavel m e a ponta para a segunda linha do arquivo
 	if ( m%3 != 0 ): #verifica se m é um número multiplo de 3 

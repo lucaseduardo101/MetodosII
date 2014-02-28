@@ -1,6 +1,8 @@
 import leitura
+import sys
+arq = sys.argv[1]
 
-l = leitura.ler()
+l = leitura.ler(arq)
 x = []
 y = []
 m = l[0]
