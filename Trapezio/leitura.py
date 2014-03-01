@@ -1,5 +1,5 @@
-def ler():
-	a = open("dadosTeste.txt","r") #Abre um arquivo chamado dados.txt
+def ler(arq):
+	a = open(arq,"r") #Abre um arquivo chamado dados.txt
 	m = int(a.readline()) #Le a primeira linha do arquivo, salva o valor dela na variavel m e a ponta para a segunda linha do arquivo
 	l = []
 	l.append(m)
@@ -11,4 +11,3 @@ def ler():
 			x = x + 1	#incrementa x					 
 		l.append(i) # a lista l so recebe os valores que foram convertidos		
 	return l	
-print ler()	
