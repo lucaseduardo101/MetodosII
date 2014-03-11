@@ -1,6 +1,6 @@
 import leitura
 import sys
-arq = sys.argv[1] #Argumento  
+arq = sys.argv[1] #Recebe o nome do arquivo que será lido  
 
 #obtem os dados do arquivo txt
 l = leitura.ler(arq)
