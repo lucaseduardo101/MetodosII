@@ -14,4 +14,3 @@ def ler(arq):
 	a.close()			
 	return l
 
-ler("entrada.txt")
