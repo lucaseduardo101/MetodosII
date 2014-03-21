@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import leitura
 import sys
 arq = sys.argv[1] #Recebe o nome do arquivo que será lido  
