@@ -4,7 +4,7 @@ from math import sqrt, exp, sin, cos
 
 arq = sys.argv[1]
 l = leitura.ler(arq)
-#falta receber esses valores do arquivo txt
+
 
 n=l[0]#recebe o valor de n
 i=l[1]#recebe o numero da funcao escolhida
