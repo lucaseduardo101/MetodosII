@@ -38,7 +38,7 @@ python NewtonCotes.py dados.txt
 --------------------------------------------------------------------------------------------------------------------------
 Para executar o metodo do Quadratura Gaussiana entre na pasta Quadratura Gaussiana e execute via terminal: 
 
-python QuadraturaGaussiana.py dados.txt 
+python quad_gass.py entrada.txt 
 
 --------------------------------------------------------------------------------------------------------------------------
 
