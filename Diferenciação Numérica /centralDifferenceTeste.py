@@ -30,3 +30,15 @@ def centralDifference(n, i, h, x):
 
 	print ('central Difference 2 pontos='),CD2
 
+       #testando derivadas para 03 pontos
+	BD3= (f(x) - 2*(f (x - h)) + f(x - (2*h)))/h
+
+	print ('backward Difference 3 pontos='),BD3
+
+	FD3 = (f(x+(2*h))-2*(f (x + h)) + f (x))/h
+
+	print ('Forward Difference 3 pontos='),FD3
+
+	CD3= (f (x + h) - (2*f(x))+ f(x-h))/(h**2)
+
+	print ('central Difference 3 pontos='),CD3
