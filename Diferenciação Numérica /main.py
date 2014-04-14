@@ -1,4 +1,4 @@
-from centralDifferenceTeste import centralDifference
+from centralDifference import centralDifference
 import sys
 import leitura
 
