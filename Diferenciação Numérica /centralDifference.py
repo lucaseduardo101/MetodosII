@@ -42,3 +42,10 @@ def centralDifference(n, i, h, x):
 	CD3= (f (x + h) - (2*f(x))+ f(x-h))/(h**2)
 
 	print ('central Difference 3 pontos='),CD3
+	
+	#central Difference para 04 pontos
+
+	CD4= ((-1*f(x+(2*h)))+ 8*(f (x + h))-8*(f (x-h))+ f(x - (2*h)))/(12*h)
+
+	print ('central Difference 4 pontos='),CD4
+
