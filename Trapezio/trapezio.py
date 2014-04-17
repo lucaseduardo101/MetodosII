@@ -1,6 +1,9 @@
 import leitura
+import sys
+arq = sys.argv[1]
+
 #obtem os dados do arquivo txt
-l = leitura.ler()
+l = leitura.ler(arq)
 s = 0
 f = []
 m=l[0]
