@@ -13,17 +13,18 @@ b=l[2][1] #recebe o limite superior
 
 # Escolha da funcao
 # 			-----------------------------------------
-#			|	indices	|			#			|	
+#			|	indices	|			                |	
 #			-----------------------------------------		
 #			| 	  1  	|	   	   1/sqrt(x)		|
 #			| 	  2  	|	     1/sqrt(1-x^2)		|
-#			| 	  3 	|   2x^3 + 3x^2 + 6x + 1	|
+#			| 	  3 	|   2x^3 + 3x^2 + 6x + 1		|
 #			| 	  4  	|	1 - x -4x^3 + 2x^5		|
 #			| 	  5  	|	      4/(1 + x^2)		|
 #			-----------------------------------------
 
 print "funcao numero:",i
 
+#selecionaFunc(funcao)
 def f(indice,x):	
 	if (indice == 0):
 		return (2*x**3 + 3*x**2 + 6*x+1)
@@ -40,9 +41,6 @@ def f(indice,x):
 	else:
 		print ('Funcao nao definida na tabela.')
 		exit()
-
-
-#selecionaFunc(funcao)
 
 #funcao que calcula o x apos a mudanca de variavel
 def x(t):
@@ -61,8 +59,6 @@ def quadGaussiana2():
 	x2=x(t2)
 	return ((b-a)/2) * (A0*f(i,x1)+A1*f(i,x2))
 
-print "valor da Quandratura para n=2 =>",quadGaussiana2()
-
 #Quadratura gaussiana para n=3
 def quadGaussiana3():
 	#valores da tabela para mudanca de variavel para n=3
@@ -78,8 +74,6 @@ def quadGaussiana3():
 	x2=x(t2)
 	x3=x(t3)
 	return ((b-a)/2) * (A0*f(i,x1)+A1*f(i,x2)+A2*f(i,x3))
-
-print "valor da Quandratura para n=3 =>",quadGaussiana3()
 
 #Quadratura gaussiana para n=4
 def quadGaussiana4():
@@ -99,8 +93,6 @@ def quadGaussiana4():
 	x3=x(t3)
 	x4=x(t4)
 	return ((b-a)/2) * (A0*f(i,x1)+A1*f(i,x2)+A2*f(i,x3)+A3*f(i,x4))
-
-print "valor da Quandratura para n=4 =>",quadGaussiana4()
 
 #Quadratura gaussiana para n=5
 def quadGaussiana5():
@@ -123,5 +115,21 @@ def quadGaussiana5():
 	x4=x(t4)
 	x5=x(t5)
 	return ((b-a)/2) * (A0*f(i,x1)+A1*f(i,x2)+A2*f(i,x3)+A3*f(i,x4)+A4*f(i,x5))
+	
+def escolherPontos(n):	
 
-print "valor da Quandratura para n=5 =>",quadGaussiana5()
+	if (n == 2):
+		return quadGaussiana2()
+	elif (n == 3):
+		return quadGaussiana3()
+	elif (n == 4):
+		return quadGaussiana4()
+	elif (n == 5):
+		return quadGaussiana5()
+	else:
+		print ('numero de pontos nao definido na tabela.')
+		exit()
+
+resultado=escolherPontos(n)
+
+print "valor da Quandratura para n=",n,"=>",resultado
