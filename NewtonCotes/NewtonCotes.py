@@ -3,14 +3,21 @@ import sys
 import leitura
 from math import sqrt, exp, sin, cos
 
-arq = sys.argv[1]
-l = leitura.ler(arq)
+#arq = sys.argv[1]
+#l = leitura.ler(arq)
 #falta receber esses valores do arquivo txt
 
-n=l[0]#recebe o valor de n
-i=l[1]#recebe o numero da funcao escolhida
-a=l[2][0] #recebe o limite inferior
-b=l[2][1] #recebe o limite superior
+#n=l[0]#recebe o valor de n
+#i=l[1]#recebe o numero da funcao escolhida
+#a=l[2][0] #recebe o limite inferior
+#b=l[2][1] #recebe o limite superior
+
+
+n=2			#recebe o valor de n
+i=6 		#recebe o numero da funcao escolhida
+a= -1.0 #recebe o limite inferior
+b=  1.0 #recebe o limite superior
+
 
 # Escolha da funcao
 # 			-----------------------------------------
@@ -39,6 +46,8 @@ def f(indice,x):
 		return (1 - x -4 * x**3 + 2 * x **5)	
 	elif (indice == 5):
 		return (4/(1 + x**2))
+	elif (indice == 6):
+		return (1 / sqrt( 1 - x**2 ))
 	else:
 		print ('Funcao nao definida na tabela.')
 		exit()
@@ -49,7 +58,7 @@ def newtonCotesFechadaGrau1():
 	
 	return (b-a)*(f(i,a) + f(i,b))/2 
 
-print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 1: ",newtonCotesFechadaGrau1()
+#print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 1: ",newtonCotesFechadaGrau1()
 
 
 #Newton Cotes fechada de grau = 2
@@ -57,7 +66,7 @@ def newtonCotesFechadaGrau2():
 	
 	return (b-a)*(f(i,a) + (4*f(i,(a+b)/2)) + f(i,b))/6
 
-print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 2: ",newtonCotesFechadaGrau2()
+#print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 2: ",newtonCotesFechadaGrau2()
 
 
 #Newton Cotes fechada de grau = 3
@@ -65,7 +74,7 @@ def newtonCotesFechadaGrau3():
 	
 	return (b-a)*(f(i,a) + (3*f(i,(2*a+b)/3)) + (3*f(i,(a+2*b)/3)) + f(i,b))/8
 
-print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 3: ",newtonCotesFechadaGrau3()
+#print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 3: ",newtonCotesFechadaGrau3()
 
 
 #Newton Cotes fechada de grau = 4
@@ -73,13 +82,13 @@ def newtonCotesFechadaGrau4():
 	
 	return (b-a)*(f(i,a) + (32*f(i,(3*a+b)/4)) + (12*f(i,(a+b)/2)) + (32*f(i,(a+3*b)/4)) +    f(i,b))/90
 
-print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 4: ",newtonCotesFechadaGrau4()
+#print "valor calculado obtido pela fórmula Newton Cotes fechada de grau 4: ",newtonCotesFechadaGrau4()
 
 
 #Newton Cotes aberta de grau = 1
 def newtonCotesAbertaGrau1():
 	
-        aux=(b-a)/3;
+        aux= (b-a)/3;
         return (b-a)*(f(i,a+aux) + f(i,a+(2*aux)))/2;
 
 print "valor calculado obtido pela fórmula Newton Cotes aberta de grau 1: ",newtonCotesAbertaGrau1()
