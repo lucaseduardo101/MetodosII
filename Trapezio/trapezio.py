@@ -1,35 +1,28 @@
-import leitura
-import sys
-arq = sys.argv[1]
+#metodos para trapezio sem  repeticao
+f=[]
+def h_simples(xm,x0):
+	return(xm-x0)
 
-#obtem os dados do arquivo txt
-l = leitura.ler(arq)
-s = 0
-f = []
-m=l[0]
+def trapezioSimples(h,fx0,fx1):
+	return ((h/2)*(fx0+fx1))
 
-x0=l[1][0]
-xm=l[m+1][0]
+def erro(integral,it):
+	return (integral-it)
 
-aux=xm-x0
-print "xm = ", xm, "x0= ", x0
-#Calculo do h
-h=aux/m
-print "h=", h
+#metodos para trapezio com repeticao
 
-for i in range(1,m+2):
-	f.append(l[i][1])
+def h_repetido(b,a,m):
+	aux=(float)(b-a)
+	h2=aux/m
+	return h2
 
-aux1=h/2
-#Realiza o somatorio
-for i in range(1,m):
-	print "f[ ",i,"] =", f[i]
-	s = s + f[i]
-#calculo da formula do trapezio	
-aux2=2*s
-s1=f[0]+f[m]
-s2=aux2+s1
+def trapezioRepetido(h,fx0,fx1,somatorio):
+	return ((h/2)*(fx0+(2*somatorio)+fx1))
 
-it=aux1*s2 #Calculo final it
-
-print "it =",it
+def somatorio(f,m):
+	s=0
+	#Realiza o somatorio
+	for i in range(1,m):
+		print "f[ ",i,"] =", f[i]
+		s = s + f[i]
+	return s

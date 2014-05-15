@@ -190,5 +190,73 @@ velocidade=RungeKutta_quarta(i,t0,tempo,h,v0)
 print ('valores coluna tempo:'),tempo
 print ('valores coluna velocidade:'),velocidade
 
+
+#implementacao interpolacao lagrange para 3 pontos
+def lagrange(x0, y0, x1, y1, x2, y2,x):
+    
+    l0 = float((x-x1)*(x-x2))/float((x0-x1)*(x0-x2))
+    l1 = float((x-x0)*(x-x2))/float((x1-x0)*(x1-x2))
+    l2 = float((x-x0)*(x-x1))/float((x2-x0)*(x2-x1)) 
+    
+    #teste 
+    print "\nL0: %f" % l0
+    print "L1: %f" % l1
+    print "L2: %f" % l2
+    
+    e0 = l0 * y0;
+    e1 = l1 * y1;
+    e2 = l2 * y2;
+    
+    return e0 + e1 + e2
+
+result = lagrange(0,0,1,2,5,8,7)
+
+
+print "Lagrange v'(x)= %d" % result
+
+
 #preditor-corretor de Adams de terceira ordem
+def adams_terceira(indice,t0,tempo,h,v0):
+	f0=f(indice,v0,t0)
+	v=[]#vai guardar os valores de v da tabela
+	v1=v0+(h*f0)
+	v.append(v1)
+	
+		
+	for i in range(0,n-1):
+		vi=v[i]#aqui vou pegar o valor anterior calculado
+		ti=tempo[i]#aqui vou pagar o valor do tempo
+
+		k1=h*(f(indice,vi,ti))
+		print 'k1=',k1
+	
+		aux1=vi+(k1/3)
+		aux2=ti+(h/3)
+		k2=h*(f(indice,aux1,aux2))
+		print 'k2=',k2
+		
+		aux3=vi+(k1/3)+(k2/3)
+		aux4=ti+((2*h)/3)
+		k3=h*(f(indice,aux3,aux4))
+		print 'k3=',k3
+		
+		aux5=vi+k1-k2+k3
+		aux6=ti+h
+		k4=h*(f(indice,aux3,aux4))
+		print 'k4=',k4
+		
+		aux7=k1+(3*k2)+(3*k3)+k4
+		v_atual=vi+(aux7/8)
+		v.append(v_atual)
+	return v
+	
+print ('\n-------------preditor-corretor de Adams de terceira ordem-------------')
+#imprimindo o vetor com valores do tempo	
+tempo=t(t0,tn,h,n)
+#imprimindo o vetor com valores da velocidade	
+velocidade=adams_terceira(i,t0,tempo,h,v0)
+print ('valores coluna tempo:'),tempo
+print ('valores coluna velocidade:'),velocidade
+
 #preditor-corretor de Adams de quarta ordem
+
