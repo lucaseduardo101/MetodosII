@@ -167,32 +167,6 @@ velocidade = RungeKutta_quarta( f, i, v0, tempo, h )
 print ( 'valores coluna tempo:' ), tempo
 print ( 'valores coluna velocidade:' ), velocidade
 
-
-
-#implementacao interpolacao lagrange para 3 pontos
-def lagrange( x0, y0, x1, y1, x2, y2, x ):
-    
-    l0 = float( ( x - x1 ) * ( x - x2 ) ) / float ( ( x0 - x1 ) * ( x0 - x2 ) )
-    l1 = float( ( x - x0 ) * ( x - x2 ) ) / float ( ( x1 - x0 ) * ( x1 - x2 ) )
-    l2 = float( ( x - x0 ) * ( x - x1 ) ) / float ( ( x2 - x0 ) * ( x2 - x1 ) ) 
-    
-    #teste 
-    print "\nL0: %f" % l0
-    print "L1: %f" % l1
-    print "L2: %f" % l2
-    
-    e0 = l0 * y0;
-    e1 = l1 * y1;
-    e2 = l2 * y2;
-    
-    return e0 + e1 + e2
-
-result = lagrange( 0, 0, 1, 2, 5, 8, 7 )
-
-
-print "Lagrange v'(x)= %d" % result
-
-
 # implementacao de Lagrange para 3 pontos
 def lagrange3(x0, y0, x1, y1, x2, y2,x):
     
@@ -212,12 +186,12 @@ def lagrange3(x0, y0, x1, y1, x2, y2,x):
     return e0 + e1 + e2
 
 
+#preditor-corretor de Adams de terceira ordem
 def Adams_terceira(indice,t0,tempo,h,v0):
 	v=[]#vai guardar os valores de v da tabela
 	
 	print('\n usando RungeKutta terceira ordem')
 	#aqui vamos obter os pontos v[i-2],v[i-1] e v[i]
-	
 	Rk3=RungeKutta_terceira(indice,t0,tempo,h,v0)
 	
 	#calculando o tempo para a extrapolacao
@@ -329,23 +303,13 @@ def Adams_quarta(indice,t0,tempo,h,v0):
 		soma=(9*vbarra_linha)+(19*v_linha0)-(5*v_linha1)+(v_linha2)
 		y_atual=vt+((h/24)*soma)
 		v.append(y_atual)
->>>>>>> d8494bd29a3fccafea7319130a035e78cd99ab34
 	return v
 	
 print ('\n-------------Metodo Preditor-Corretor de Adams de quarta ordem-------------')
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo=t(t0,tn,h,n)
 #imprimindo o vetor com valores da velocidade	
-
-<<<<<<< HEAD
-velocidade = adams_terceira( i, t0, tempo, h, v0 )
-print ( 'valores coluna tempo:' ), tempo
-print ( 'valores coluna velocidade:' ), velocidade
-
-#preditor-corretor de Adams de quarta ordem
-
-=======
 velocidade=Adams_quarta(i,t0,tempo,h,v0)
 print ('valores coluna tempo:'),tempo
 print ('valores coluna velocidade:'),velocidade
->>>>>>> d8494bd29a3fccafea7319130a035e78cd99ab34
+
