@@ -212,46 +212,12 @@ def lagrange3(x0, y0, x1, y1, x2, y2,x):
     return e0 + e1 + e2
 
 
-#preditor-corretor de Adams de terceira ordem
-<<<<<<< HEAD
-def adams_terceira( indice, t0, tempo, h, v0 ):
-	f0 = f( indice, v0, t0 )
-	v = []#vai guardar os valores de v da tabela
-	v1 = v0 +( h * f0 )
-	v.append( v1 )
-	
-		
-	for i in range( 0, n-1 ):
-		vi = v[i]#aqui vou pegar o valor anterior calculado
-		ti = tempo[i]#aqui vou pagar o valor do tempo
-
-		k1 = h * ( f( indice, vi, ti ) )
-		print 'k1=', k1
-	
-		aux1 = vi + ( k1 / 3 )
-		aux2 = ti + ( h / 3 )
-		k2 = h * ( f( indice, aux1, aux2 ) )
-		print 'k2=', k2
-		
-		aux3 = vi + ( k1 / 3 ) + ( k2 / 3 )
-		aux4 = ti + ( ( 2 * h ) / 3 )
-		k3 = h * ( f ( indice, aux3, aux4 ) )
-		print 'k3=', k3
-		
-		aux5 = vi + k1 - k2 + k3
-		aux6 = ti + h
-		k4 = h * ( f ( indice, aux3, aux4 ) )
-		print 'k4=', k4
-		
-		aux7 = k1 + ( 3 * k2 ) + ( 3 * k3 ) + k4
-		v_atual = vi + ( aux7 / 8 ) 
-		v.append( v_atual )
-=======
 def Adams_terceira(indice,t0,tempo,h,v0):
 	v=[]#vai guardar os valores de v da tabela
 	
 	print('\n usando RungeKutta terceira ordem')
 	#aqui vamos obter os pontos v[i-2],v[i-1] e v[i]
+	
 	Rk3=RungeKutta_terceira(indice,t0,tempo,h,v0)
 	
 	#calculando o tempo para a extrapolacao
@@ -370,6 +336,7 @@ print ('\n-------------Metodo Preditor-Corretor de Adams de quarta ordem--------
 #imprimindo o vetor com valores do tempo	
 tempo = t( t0, tn, h, n )
 #imprimindo o vetor com valores da velocidade	
+
 <<<<<<< HEAD
 velocidade = adams_terceira( i, t0, tempo, h, v0 )
 print ( 'valores coluna tempo:' ), tempo
