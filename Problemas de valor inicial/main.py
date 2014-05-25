@@ -1,16 +1,17 @@
+
 from init import f,t,euler,RungeKutta_segunda, RungeKutta_terceira, RungeKutta_quarta, Adams_terceira, Adams_quarta 
 import leitura,time
 import sys
 
 
-arq = sys.argv[1]
+arq = sys.argv[ 1 ]
 l = leitura.ler( arq )
 
-v0 = l[0]#recebe o valor de v0
-i = l[1]#recebe o numero da funcao escolhida
-h = l[2]#recebe o valor de h
-t0 = l[3][0] #recebe o limite inferior
-tn = l[3][1] #recebe o limite superior
+v0 = l[ 0 ]#recebe o valor de v0
+i = l[ 1 ]#recebe o numero da funcao escolhida
+h = l[ 2 ]#recebe o valor de h
+t0 = l[ 3 ][ 0 ] #recebe o limite inferior
+tn = l[ 3 ][ 1 ] #recebe o limite superior
 n = 11 #quantidade de linhas que a tabela vai ter
 
 
@@ -34,13 +35,13 @@ print "           ***  tn: ", tn ," *** "
 #imprimindo o vetor com valores do tempo	
 tempo = t( t0, tn, h, n )
 
-print ('valores coluna tempo:'), tempo
+print ( 'valores coluna tempo:' ), tempo
 #imprimindo o vetor com valores da velocidade	
 
 velocidade = euler( f, i, v0, tempo, h,  )
-print ('valores coluna velocidade:'), velocidade
+print ( 'valores coluna velocidade:' ), velocidade
 
-print ('\n-------------Metodo RungeKutta_segunda ordem-------------')
+print ( '\n-------------Metodo RungeKutta_segunda ordem-------------' )
 #imprimindo o vetor com valores do tempo	
 tempo = t( t0, tn, h, n )
 
@@ -82,6 +83,6 @@ print ('\n-------------Metodo Preditor-Corretor de Adams de quarta ordem--------
 #imprimindo o vetor com valores do tempo	
 tempo = t( t0, tn, h, n )
 #imprimindo o vetor com valores da velocidade	
-velocidade = Adams_quarta( f, i, t0, tempo, h, v0)
+velocidade = Adams_quarta( f, i, tempo, h, v0)
 print ('valores coluna tempo:'), tempo
 print ('valores coluna velocidade:'), velocidade
