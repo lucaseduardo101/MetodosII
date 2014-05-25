@@ -12,7 +12,7 @@ i = l[ 1 ]#recebe o numero da funcao escolhida
 h = l[ 2 ]#recebe o valor de h
 t0 = l[ 3 ][ 0 ] #recebe o limite inferior
 tn = l[ 3 ][ 1 ] #recebe o limite superior
-n = 11 #quantidade de linhas que a tabela vai ter
+n = 5 #quantidade de linhas que a tabela vai ter
 
 
 # Escolha da funcao
@@ -33,7 +33,7 @@ print "           ***  t0: ", t0 ," *** "
 print "           ***  tn: ", tn ," *** "
 
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 
 print ( 'valores coluna tempo:' ), tempo
 #imprimindo o vetor com valores da velocidade	
@@ -43,7 +43,7 @@ print ( 'valores coluna velocidade:' ), velocidade
 
 print ( '\n-------------Metodo RungeKutta_segunda ordem-------------' )
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 
 #imprimindo o vetor com valores da velocidade
 velocidade = RungeKutta_segunda( f, i, v0, tempo, h )
@@ -52,7 +52,7 @@ print ( 'valores coluna velocidade:' ), velocidade
 
 print ( '\n-------------Metodo RungeKutta_terceira ordem-------------' )
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 
 #imprimindo o vetor com valores da velocidade	
 velocidade = RungeKutta_terceira( f, i, v0, tempo, h )
@@ -64,7 +64,7 @@ print ( 'valores coluna velocidade:' ), velocidade
 print ('\n-------------Metodo RungeKutta_quarta ordem-------------')
 
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 #imprimindo o vetor com valores da velocidade	
 velocidade = RungeKutta_quarta( f, i, v0, tempo, h )
 print ( 'valores coluna tempo:' ), tempo
@@ -72,7 +72,7 @@ print ( 'valores coluna velocidade:' ), velocidade
 
 print ('\n-------------Metodo Preditor-Corretor de Adams de terceira ordem-------------')
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 #imprimindo o vetor com valores da velocidade	
 velocidade = Adams_terceira( f, i, tempo, h, v0 )
 print ('valores coluna tempo:'), tempo
@@ -81,7 +81,7 @@ print ('valores coluna velocidade:'), velocidade
 	
 print ('\n-------------Metodo Preditor-Corretor de Adams de quarta ordem-------------')
 #imprimindo o vetor com valores do tempo	
-tempo = t( t0, tn, h, n )
+tempo = t( t0, tn, n )
 #imprimindo o vetor com valores da velocidade	
 velocidade = Adams_quarta( f, i, tempo, h, v0)
 print ('valores coluna tempo:'), tempo

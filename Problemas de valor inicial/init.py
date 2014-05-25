@@ -22,10 +22,11 @@ def f( indice, v, t ):
 
 #funcao que calcula os valores de t que serao usados no intervalo
 
-def t( t0, tn, h, n ):
+def t( t0, tn, n ):
 	t = []#vai guardar os valores da coluna t da tabela
 	t.append( t0 )
 	aux = t0
+	h = ( tn - t0 ) / n
 	for i in range( 1, n-1 ):
 		aux = aux + h
 		t.append( aux )
@@ -36,25 +37,23 @@ def t( t0, tn, h, n ):
 
 #Metodo Forward Euler
 def euler( f, indice, x0, t, h ):
-	n = len(t)
-	x = range(n)
-	x[0] = x0
+	n = len( t )
+	x = range( n )
+	x[ 0 ] = x0
 	
-	for i in range( 0, n-1 ):
-		k1 = h * f ( indice, x[i], t[i] )
-		x[ i+1 ] = x[i] + k1
+	for i in range( 0, n - 1 ):
+		k1 = h * f ( indice, x[ i ], t[ i ] )
+		x[ i + 1 ] = x[ i ] + k1
 		
 	return x
 
-	
-print ('\n-------------Metodo Forward Euler-------------')
 
 #metodo de Runge-kutta de segunda ordem -baseado na regra do trapezio
 
 def RungeKutta_segunda( f, indice, x0, t, h ):
-	n = len(t)
-	x = range(n)
-	x[0] = x0
+	n = len( t )
+	x = range( n )
+	x[ 0 ] = x0
 	
 	for i in xrange(n - 1):
 		
@@ -115,7 +114,7 @@ def Adams_terceira( f, indice, tempo, h, v0 ):
 	i = 2 
 	
 	#aqui vamos obter os pontos v[i-2],v[i-1] e v[i]	
-	v = RungeKutta_quarta( f, indice, v0, tempo, h )
+	v = RungeKutta_terceira( f, indice, v0, tempo, h )
 		
 	v_[0] = ( f( indice, v[0], t) )
 	v_[1] = ( f( indice, v[1], t + h )  )
